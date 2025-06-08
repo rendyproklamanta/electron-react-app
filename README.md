@@ -78,6 +78,12 @@ pnpm dev
 bun run dev
 ```
 
+Add components/block shadcn
+
+```bash
+bunx --bun shadcn@latest add dashboard-01
+```
+
 This will start Electron with hot-reload enabled so you can see changes in real time.
 
 <br />

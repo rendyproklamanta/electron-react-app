@@ -4,9 +4,8 @@ import { TitlebarContextProvider } from './TitlebarContext'
 
 const WindowContext = createContext<WindowContextProps | undefined>(undefined)
 
-export const WindowContextProvider = ({ children, titlebar }: WindowContextProviderProps) => {
-  const [initProps, setInitProps] = useState<WindowInitProps | undefined>()
-
+export const WindowContextProvider = ({ children, titlebar} : WindowContextProviderProps) => {
+  const [initProps, setInitProps] = useState<WindowInitProps | null>(null)
   const defaultTitlebar: TitlebarProps = {
     title: 'Electron React App',
     icon: 'appIcon.png',

@@ -13,6 +13,9 @@ const api = {
   removeAllListeners: (channel: string) => {
     ipcRenderer.removeAllListeners(channel)
   },
+  on: (channel, callback) => {
+    ipcRenderer.on(channel, (_, ...args) => callback(...args))
+  },
 }
 
 export default api

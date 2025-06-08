@@ -104,17 +104,17 @@ export const menuItems: TitlebarMenu[] = [
   {
     name: 'Window',
     items: [
-      {
-        name: 'Dark Mode',
-        action: 'window-darkmode-toggle',
-        shortcut: 'Toggle',
-        actionCallback: () => {
-          document.documentElement.classList.toggle('dark')
-        },
-      },
-      {
-        name: '---',
-      },
+      // {
+      //   name: 'Dark Mode',
+      //   action: 'window-darkmode-toggle',
+      //   shortcut: 'Toggle',
+      //   actionCallback: () => {
+      //     document.documentElement.classList.toggle('dark')
+      //   },
+      // },
+      // {
+      //   name: '---',
+      // },
       {
         name: 'Maximize',
         action: 'window-maximize-toggle',
@@ -138,7 +138,7 @@ export const menuItems: TitlebarMenu[] = [
       {
         name: 'Guasam',
         action: 'web-open-url',
-        actionParams: ['https://github.com/guasam'],
+        actionParams: ['https://github.com/guasam/electron-react-app'],
         shortcut: '@guasam',
       },
     ],

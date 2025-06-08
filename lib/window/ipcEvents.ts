@@ -31,6 +31,9 @@ export const registerWindowIPC = (mainWindow: BrowserWindow) => {
       mainWindow.maximize()
     }
   })
+  handleIPC('is-window-maximized', () => {
+    return mainWindow.isMaximized()
+  })
 
   const webContents = mainWindow.webContents
   handleIPC('web-undo', () => webContents.undo())

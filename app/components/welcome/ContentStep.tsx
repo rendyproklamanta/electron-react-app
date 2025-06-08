@@ -5,7 +5,7 @@ const ContentStep = ({
 }: {
   title: string
   description: string
-  icon: React.ComponentType
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>
 }) => {
   return (
     <div className="welcome-content-step">
