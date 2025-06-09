@@ -60,8 +60,8 @@ const data = {
                url: "/",
             },
             {
-               title: "Home",
-               url: "/home",
+               title: "Onboarding",
+               url: "/onboarding",
             },
             {
                title: "Charts",

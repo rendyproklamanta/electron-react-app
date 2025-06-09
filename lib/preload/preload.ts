@@ -1,4 +1,4 @@
-import { contextBridge } from 'electron'
+import { contextBridge, ipcRenderer } from 'electron'
 import { electronAPI } from '@electron-toolkit/preload'
 import api from './api'
 
@@ -9,6 +9,10 @@ if (process.contextIsolated) {
   try {
     contextBridge.exposeInMainWorld('electron', electronAPI)
     contextBridge.exposeInMainWorld('api', api)
+    contextBridge.exposeInMainWorld('electronBridge', {
+      closeApp: () => ipcRenderer.send('app-close'),
+      logError: (message: string) => ipcRenderer.send('log-error', message),
+    });
   } catch (error) {
     console.error(error)
   }

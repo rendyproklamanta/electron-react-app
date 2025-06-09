@@ -1,6 +1,8 @@
-import { app, BrowserWindow } from 'electron'
+import { app, BrowserWindow, ipcMain } from 'electron'
 import { electronApp, optimizer } from '@electron-toolkit/utils'
 import { createAppWindow } from './app'
+import path from 'path'
+import fs from 'fs'
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
@@ -25,6 +27,18 @@ app.whenReady().then(() => {
       createAppWindow()
     }
   })
+
+  ipcMain.on('log-error', (_event, message: string) => {
+    const logPath = path.resolve(app.getAppPath(), 'error.log'); // ✅ consistent root
+    const timestamp = new Date().toISOString();
+    const logEntry = `[${timestamp}] ${message}\n`;
+
+    fs.appendFileSync(logPath, logEntry, 'utf-8');
+  });
+
+  ipcMain.on('app-close', () => {
+    app.quit();
+  });
 })
 
 // Quit when all windows are closed, except on macOS. There, it's common

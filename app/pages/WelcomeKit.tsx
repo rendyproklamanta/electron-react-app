@@ -42,7 +42,7 @@ export default function WelcomeKit() {
 
   return (
     <>
-      <Burger breadcrumbs="Home" />
+      <Burger breadcrumbs="Onboarding" />
       <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
         <div className="flex gap-5 items-center">
           <AnimatePresence mode="wait">

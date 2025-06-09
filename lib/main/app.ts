@@ -1,4 +1,4 @@
-import { BrowserWindow, shell, app, protocol, net } from 'electron'
+import { BrowserWindow, shell, app, protocol, net, screen } from 'electron'
 import { join } from 'path'
 import { registerWindowIPC } from '@/lib/window/ipcEvents'
 import appIcon from '@/resources/build/icon.png?asset'
@@ -8,10 +8,15 @@ export function createAppWindow(): void {
   // Register custom protocol for resources
   registerResourcesProtocol()
 
+  const display = screen.getPrimaryDisplay()
+  const workArea = display.workArea // excludes taskbar
+
   // Create the main window.
   const mainWindow = new BrowserWindow({
-    width: 1000,
-    height: 670,
+    x: workArea.x,
+    y: workArea.y,
+    width: workArea.width,
+    height: workArea.height,
     show: false,
     backgroundColor: '#1c1c1c',
     icon: appIcon,

@@ -7,3 +7,12 @@ declare global {
     api: typeof api
   }
 }
+
+declare global {
+  interface Window {
+    electronBridge?: {
+      closeApp?: () => void;
+      logError?: (message: string) => void;
+    };
+  }
+}
